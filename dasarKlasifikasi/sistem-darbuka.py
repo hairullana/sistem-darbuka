@@ -147,7 +147,6 @@ def klasifikasi(filename,k) :
         
     return hasil, k_dum, k_tak, k_slap, indeks
 
-#%%
 # TESTING DUM
 k = 5
 print('TESTING ON DUM TONE (K=' + str(k) + ')')
