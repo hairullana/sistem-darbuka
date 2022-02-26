@@ -3,7 +3,7 @@ import librosa
 import librosa.feature
 import numpy as np
 
-audio = 'DataTA/NadaDasar/tak/tak5.wav'
+audio = 'dataset/toneBasic/tak/tak5.wav'
 y,_ = librosa.load(audio, sr=44100)
 mfcc = librosa.feature.mfcc(y=y, n_mfcc=13)
 mfcc_flat = np.mean(mfcc, axis=1)

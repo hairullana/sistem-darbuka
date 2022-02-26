@@ -13,7 +13,7 @@ def mfcc_extract(filename):
     except:
         return
 
-filename = 'DataTA/NadaDasar/tak/tak1.wav'
+filename = 'dataset/toneBasic/tak/tak1.wav'
 audio, sr  = librosa.load(filename, sr=44100)
 x,y,z = mfcc_extract(filename)
 print("Audio duration: {0}s".format(len(audio) / 44100))

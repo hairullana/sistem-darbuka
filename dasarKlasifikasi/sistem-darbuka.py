@@ -41,7 +41,7 @@ def save_to_db(jenisNada,mfcc):
 # TRAINING
 for i in jenisNada :
     for j in range(jumlahDataLatih) :
-        filename = 'DataTA/NadaDasar/' + i + '/' + i + str(j+1) + '.wav'
+        filename = 'dataset/toneBasic/' + i + '/' + i + str(j+1) + '.wav'
         # EXTRACTION
         mfcc = mfcc_extract(filename)
         # MEAN OF EACH COEFFICIENT
@@ -152,7 +152,7 @@ k = 5
 print('TESTING ON DUM TONE (K=' + str(k) + ')')
 for i in range(20) :
     indeks = i + 51
-    filename = 'DataTA/NadaDasar/dum/dum' + str(indeks) + '.wav'
+    filename = 'dataset/toneBasic/dum/dum' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = klasifikasi(filename,k)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]
@@ -163,7 +163,7 @@ for i in range(20) :
 print('TESTING ON TAK TONE (K=' + str(k) + ')')
 for i in range(20) :
     indeks = i + 51
-    filename = 'DataTA/NadaDasar/tak/tak' + str(indeks) + '.wav'
+    filename = 'dataset/toneBasic/tak/tak' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = klasifikasi(filename,k)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]
@@ -173,7 +173,7 @@ for i in range(20) :
 print('TESTING ON SLAP TONE (K=' + str(k) + ')')
 for i in range(20) :
     indeks = i + 51
-    filename = 'DataTA/NadaDasar/slap/slap' + str(indeks) + '.wav'
+    filename = 'dataset/toneBasic/slap/slap' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = klasifikasi(filename,k)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]

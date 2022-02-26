@@ -4,7 +4,7 @@ from scipy.io.wavfile import write
 import matplotlib.pyplot as plt
 
 # Load some audio
-y, sr = librosa.load('DataTA/NadaDasar/dum/dum5.wav')
+y, sr = librosa.load('dataset/toneBasic/dum/dum5.wav')
 # Trim the beginning and ending silence
 yt, index = librosa.effects.trim(y, top_db=40)
 # Print the durations

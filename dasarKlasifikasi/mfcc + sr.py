@@ -30,6 +30,6 @@ def mfcc_extract(filename):
     except:
         return
 
-filename = 'DataTA/NadaDasar/tak/tak66.wav'
+filename = 'dataset/toneBasic/tak/tak66.wav'
 mfcc1,y,z,mfcc0 = mfcc_extract(filename)
 mfcc2 = np.mean(mfcc1, axis=1)
