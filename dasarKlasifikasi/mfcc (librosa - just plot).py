@@ -1,17 +1,13 @@
-import os
 import numpy as np
-import scipy
 from scipy.io import wavfile
-import scipy.fftpack as fft
-from scipy.signal import get_window
 import IPython.display as ipd
 import matplotlib.pyplot as plt
 
 # %matplotlib inline
 # TRAIN_PATH = '../input/audio_train/'
-ipd.Audio("dum1.wav")
+ipd.Audio("d:/ngoding/sistem darbuka/dataset/tonePattern/baladi2_1.wav")
 
-sample_rate, audio = wavfile.read("dum1.wav")
+sample_rate, audio = wavfile.read("d:/ngoding/sistem darbuka/dataset/tonePattern/baladi2_1.wav")
 print("Sample rate: {0}Hz".format(sample_rate))
 print("Audio duration: {0}s".format(len(audio) / sample_rate))
 
