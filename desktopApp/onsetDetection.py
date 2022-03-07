@@ -1,9 +1,8 @@
 import librosa
 from classificationFunc import klasifikasi
-import mfccFunc
 from pydub import AudioSegment
 
-filename = 'd:/ngoding/sistem darbuka/dataset/tonePattern/baladi2_3.wav'
+filename = 'd:/ngoding/sistem darbuka/dataset/tonePattern/baladi2_1.wav'
 windowLength = 0.02
 frameLength = 0.01
 mfccTotalFeature = 13
@@ -24,6 +23,6 @@ for onset in onsetDetection:
         end = int(librosa.get_duration(filename=filename)*1000)
     newAudio = newAudio[start:end]
     newAudio.export('temp.wav', format="wav")
-    hasil, k_dum, k_tak, k_slap, indeks = klasifikasi('temp.wav', 3, 0.02, 0.01, 13)
+    hasil, k_dum, k_tak, k_slap, indeks = klasifikasi('temp.wav', 1, 0.02, 0.01, 13)
     i += 1
     print(hasil)

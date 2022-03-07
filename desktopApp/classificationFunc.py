@@ -8,11 +8,11 @@ connection = mysql.connector.connect(
   user='root',
   password='',
   host='127.0.0.1',
-  database='darbuka'
+  database='darbuka_tone'
 )
 # TAKE TRAINING DATASET TO ARRAY
 cursor = connection.cursor()
-cursor.execute("SELECT * FROM data_latih")
+cursor.execute("SELECT * FROM dataset")
 data = cursor.fetchall()
 
 dum = []
