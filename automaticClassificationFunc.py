@@ -15,7 +15,7 @@ def klasifikasiNada(k, windowLength, frameLength, mfccCoefficients, info, klasif
   hasilKlasifikasiDum += '\nSedang melakukan klasifikasi nada DUM (K=' + str(k) + ')\n'
   for i in range(20) :
     indeks = i + 51
-    filename = 'dataset/toneBasic/dum/dum' + str(indeks) + '.wav'
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/dum/dum' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = classificationFunc.klasifikasi(filename, k, windowLength, frameLength, mfccCoefficients)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]
@@ -28,7 +28,7 @@ def klasifikasiNada(k, windowLength, frameLength, mfccCoefficients, info, klasif
   hasilKlasifikasiTak += '\nSedang melakukan klasifikasi nada TAK (K=' + str(k) + ')\n'
   for i in range(20) :
     indeks = i + 51
-    filename = 'dataset/toneBasic/tak/tak' + str(indeks) + '.wav'
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/tak/tak' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = classificationFunc.klasifikasi(filename, k, windowLength, frameLength, mfccCoefficients)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]
@@ -41,7 +41,7 @@ def klasifikasiNada(k, windowLength, frameLength, mfccCoefficients, info, klasif
   hasilKlasifikasiSlap += '\nSedang melakukan klasifikasi nada SLAP (K=' + str(k) + ')\n'
   for i in range(20) :
     indeks = i + 51
-    filename = 'dataset/toneBasic/slap/slap' + str(indeks) + '.wav'
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/slap/slap' + str(indeks) + '.wav'
     hasil, k_dum, k_tak, k_slap, indeks = classificationFunc.klasifikasi(filename, k, windowLength, frameLength, mfccCoefficients)
     file = filename.split(sep="/")
     file2 = file[len(file)-1]

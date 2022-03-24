@@ -10,7 +10,7 @@ def select_file(k, windowLength, frameLength, mfccCoefficients, klasifikasiDum, 
 
   filename = fd.askopenfilename(
     title='Pilih Nada',
-    initialdir='D:/Ngoding/Sistem Darbuka/dataset/toneBasic/',
+    initialdir='D:/Ngoding/Sistem Darbuka/D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/',
     filetypes=filetypes)
 
   hasil, k_dum, k_tak, k_slap, indeks = classificationFunc.klasifikasi(filename, k, windowLength, frameLength, mfccCoefficients)
