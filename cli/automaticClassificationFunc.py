@@ -9,12 +9,12 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
   totalTrueSlap = 0
   accuracyResult = ""
 
-  totalTesting = 20
+  totalTesting = 10
 
   # TESTING DUM
   for i in range(totalTesting) :
-    indeks = i + 51
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/dum/dum' + str(indeks) + '.wav'
+    indeks = i + 61
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/dum/dum' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'DUM':
       totalTrueDum += 1
@@ -22,8 +22,8 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
 
   # TESTING TAK
   for i in range(totalTesting) :
-    indeks = i + 51
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/tak/tak' + str(indeks) + '.wav'
+    indeks = i + 61
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/tak/tak' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'TAK':
       totalTrueTak += 1
@@ -31,8 +31,8 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
 
   # TESTING SLAP
   for i in range(totalTesting) :
-    indeks = i + 51
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/slap/slap' + str(indeks) + '.wav'
+    indeks = i + 61
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/slap/slap' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'SLAP':
       totalTrueSlap += 1
