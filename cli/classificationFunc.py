@@ -1,32 +1,42 @@
 import os
 import math
 import numpy as np
-from . import mfccFunc
-from dataset.models import dataset
+from mfccFunc import mfcc_extract
 import librosa
 from pydub import AudioSegment
-from . import classificationFunc
+import mysql.connector
 
 # COLLECTING TRAINING DATASET IN DB
-data = dataset.objects.all()
+connection = mysql.connector.connect(
+  user='root',
+  password='',
+  host='127.0.0.1',
+  database='darbuka_tone'
+)
+# TAKE TRAINING DATASET TO ARRAY
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM dataset")
+data = cursor.fetchall()
+
+# print(data)
 
 dum = []
 tak = []
 slap = []
 
 for x in data:
-  dataExtraction = x.extraction
-  if x.tone == 'dum' :
+  dataExtraction = x[2]
+  if x[1] == 'dum' :
     dum.append(np.fromstring(dataExtraction.strip('[]'),count=13, dtype=float, sep=' '))
-  elif x.tone == 'tak' :
+  elif x[1] == 'tak' :
     tak.append(np.fromstring(dataExtraction.strip('[]'),count=13, dtype=float, sep=' '))
-  elif x.tone == 'slap' :
+  elif x[1] == 'slap' :
     slap.append(np.fromstring(dataExtraction.strip('[]'),count=13, dtype=float, sep=' '))
 
 # CLASSIFICATION
 def basicToneIdentification(filename, k, frameLength, hopLength, mfccTotalFeature) :
   # MFCC
-  testing = mfccFunc.mfcc_extract(filename, frameLength, hopLength, mfccTotalFeature)
+  testing = mfcc_extract(filename, frameLength, hopLength, mfccTotalFeature)
   # MEAN OF EACH COEFFICIENT
   testing = np.mean(testing, axis=1)
   # CALCULATE DISTANCE
@@ -111,7 +121,7 @@ def tonePatternIdentification(filename, k, frameLength, hopLength, mfccCoefficie
         end = int(librosa.get_duration(filename=filename)*1000)
     newAudio = newAudio[start:end]
     newAudio.export('temp.wav', format="wav")
-    result = classificationFunc.basicToneIdentification('temp.wav', k, frameLength, hopLength, mfccCoefficient)
+    result = basicToneIdentification('temp.wav', k, frameLength, hopLength, mfccCoefficient)
 
     toneDetect.append(result)
     
