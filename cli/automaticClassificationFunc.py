@@ -9,12 +9,12 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
   totalTrueSlap = 0
   accuracyResult = ""
 
-  totalTesting = 10
+  totalTesting = 20
 
   # TESTING DUM
   for i in range(totalTesting) :
-    indeks = i + 61
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/dum/dum' + str(indeks) + '.wav'
+    indeks = i + 51
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/dum/dum' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'DUM':
       totalTrueDum += 1
@@ -22,8 +22,8 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
 
   # TESTING TAK
   for i in range(totalTesting) :
-    indeks = i + 61
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/tak/tak' + str(indeks) + '.wav'
+    indeks = i + 51
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/tak/tak' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'TAK':
       totalTrueTak += 1
@@ -31,8 +31,8 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
 
   # TESTING SLAP
   for i in range(totalTesting) :
-    indeks = i + 61
-    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasic/slap/slap' + str(indeks) + '.wav'
+    indeks = i + 51
+    filename = 'D:/Ngoding/darbukaToneClassification/static/dataset/toneBasicNoise/slap/slap' + str(indeks) + '.wav'
     result = basicToneIdentification(filename, k, frameLength, hopLength, mfccCoefficient)
     if result == 'SLAP':
       totalTrueSlap += 1
@@ -41,9 +41,9 @@ def basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
   totalTrue = totalTrueDum + totalTrueTak + totalTrueSlap
 
   accuracyResult += "Total = " + str(totalTrue) + "/" + str(totalTesting*3) + " (" + str("{:.2f}".format(totalTrue/(totalTesting*3)*100)) + "%)<br/>"
-  accuracyResult += "DUM Tone = " + str(totalTrueDum) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueDum/totalTesting*100)) + "%)<br/>"
-  accuracyResult += "TAK Tone = " + str(totalTrueTak) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueTak/totalTesting*100)) + "%)<br/>"
-  accuracyResult += "SLAP Tone = " + str(totalTrueSlap) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueSlap/totalTesting*100)) + "%)"
+  # accuracyResult += "DUM Tone = " + str(totalTrueDum) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueDum/totalTesting*100)) + "%)<br/>"
+  # accuracyResult += "TAK Tone = " + str(totalTrueTak) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueTak/totalTesting*100)) + "%)<br/>"
+  # accuracyResult += "SLAP Tone = " + str(totalTrueSlap) + "/" + str(totalTesting) + " (" + str("{:.2f}".format(totalTrueSlap/totalTesting*100)) + "%)"
 
   return dumResult, takResult, slapResult, accuracyResult
 
@@ -130,7 +130,7 @@ def tonePatternAutomaticIdentification(frameLength, hopLength, mfccCoefficient, 
         sayyidiResult.append(identification)
 
   accuracyResult += "Total = " + str(totalTrueDum + totalTrueTak) + "/" + str(totalDum + totalTak) + " (" + str("{:.2f}".format((totalTrueDum + totalTrueTak)/150*100)) + "%)<br/>"
-  accuracyResult += "DUM Tone = " + str(totalTrueDum) + "/" + str(totalDum) + " (" + str("{:.2f}".format(totalTrueDum/totalDum*100)) + "%)<br/>"
-  accuracyResult += "TAK Tone = " + str(totalTrueTak) + "/" + str(totalTak) + " (" + str("{:.2f}".format(totalTrueTak/totalTak*100)) + "%)<br/>"
+  # accuracyResult += "DUM Tone = " + str(totalTrueDum) + "/" + str(totalDum) + " (" + str("{:.2f}".format(totalTrueDum/totalDum*100)) + "%)<br/>"
+  # accuracyResult += "TAK Tone = " + str(totalTrueTak) + "/" + str(totalTak) + " (" + str("{:.2f}".format(totalTrueTak/totalTak*100)) + "%)<br/>"
 
   return baladiResult, maqsumResult, sayyidiResult, accuracyResult
