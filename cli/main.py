@@ -12,7 +12,6 @@ connection = mysql.connector.connect(
 cursor = connection.cursor()
 cursor.execute("SELECT * FROM mfcc_parameters WHERE id=1")
 data = cursor.fetchone()
-  
 frameLength = data[1]
 hopLength = data[2]
 mfccCoefficient = data[3]
