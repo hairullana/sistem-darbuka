@@ -16,7 +16,7 @@ frameLength = data[1]
 hopLength = data[2]
 mfccCoefficient = data[3]
 
-k = 9
+k = 3
 
 dumResult, takResult, slapResult, accuracyResultOfBasicTone = basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
 baladiResult, maqsumResult, sayyidiResult, accuracyResultofTonePattern = tonePatternAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)

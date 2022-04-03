@@ -35,6 +35,7 @@ for x in data:
 
 # CLASSIFICATION
 def basicToneIdentification(filename, k, frameLength, hopLength, mfccTotalFeature) :
+  # print(filename)
   # MFCC
   testing = mfcc_extract(filename, frameLength, hopLength, mfccTotalFeature)
   # MEAN OF EACH COEFFICIENT
@@ -59,6 +60,8 @@ def basicToneIdentification(filename, k, frameLength, hopLength, mfccTotalFeatur
       total += pow((nada_slap[i] - testing[i]),2)
     euclidean_distance = math.sqrt(total)
     data_jarak.append(euclidean_distance)
+  
+  # print(len(data_jarak))
   
   # KNN
   data_jarak2 = data_jarak
