@@ -13,13 +13,13 @@ cursor = connection.cursor()
 cursor.execute("SELECT * FROM mfcc_parameters WHERE id=1")
 data = cursor.fetchone()
 frameLength = data[1]
-hopLength = data[2]
+overlap = data[2]
 mfccCoefficient = data[3]
 
 k = 3
 
-dumResult, takResult, slapResult, accuracyResultOfBasicTone = basicToneAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
-baladiResult, maqsumResult, sayyidiResult, accuracyResultofTonePattern = tonePatternAutomaticIdentification(frameLength, hopLength, mfccCoefficient, k)
+dumResult, takResult, slapResult, accuracyResultOfBasicTone = basicToneAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
+baladiResult, maqsumResult, sayyidiResult, accuracyResultofTonePattern = tonePatternAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
 
 print(accuracyResultOfBasicTone)
 print(accuracyResultofTonePattern)
