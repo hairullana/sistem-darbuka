@@ -30,7 +30,7 @@ def trainingData(windowLength, frameLength, mfccCoefficients, info):
   # TRAINING
   for i in jenisNada :
     for j in range(jumlahDataLatih) :
-      filename = 'D:/Ngoding/darbukaToneIdentification/static/dataset/toneBasic/' + i + '/' + i + str(j+1) + '.wav'
+      filename = 'c:/coding/darbukaToneIdentification/static/dataset/toneBasic/' + i + '/' + i + str(j+1) + '.wav'
       # EXTRACTION
       mfccResult = mfccFunc.mfcc_extract(filename, windowLength, frameLength, mfccCoefficients)
       # MEAN OF EACH COEFFICIENT

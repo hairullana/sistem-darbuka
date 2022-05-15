@@ -16,10 +16,13 @@ frameLength = data[1]
 overlap = data[2]
 mfccCoefficient = data[3]
 
-k = 3
+for k in [1, 3, 5, 7, 9] :
+  dumResult, takResult, slapResult, accuracyResultOfBasicTone = basicToneAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
+  baladiResult, maqsumResult, sayyidiResult, accuracyResultofTonePattern, dumAccuracyResult, takAccuracyResult = tonePatternAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
 
-dumResult, takResult, slapResult, accuracyResultOfBasicTone = basicToneAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
-baladiResult, maqsumResult, sayyidiResult, accuracyResultofTonePattern = tonePatternAutomaticIdentification(frameLength, overlap, mfccCoefficient, k)
-
-print(accuracyResultOfBasicTone)
-print(accuracyResultofTonePattern)
+  print(str(frameLength*1000) + ', ' + str(overlap*1000) + ', ' +  str(mfccCoefficient) + ', ' + str(k))
+  print(dumResult)
+  print(takResult)
+  print(slapResult)
+  print(dumAccuracyResult)
+  print(takAccuracyResult)
