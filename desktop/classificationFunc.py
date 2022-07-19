@@ -6,9 +6,10 @@ import mysql.connector
 # COLLECTING TRAINING DATASET IN DB
 connection = mysql.connector.connect(
   user='root',
-  password='',
-  host='127.0.0.1',
-  database='darbuka_tone'
+  password='root',
+  host='localhost',
+  database='darbuka_tone',
+  auth_plugin='mysql_native_password'
 )
 # TAKE TRAINING DATASET TO ARRAY
 cursor = connection.cursor()
